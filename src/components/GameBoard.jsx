@@ -36,12 +36,35 @@ function GameBoard({ gameInfo, setGameInfo }) {
     fetchAllPokemon();
   }, [gameCount]);
 
+  const shuffleArray = (array) => {
+    // Create a shallow copy of the array to avoid mutating the original array
+    const newArr = [...array];
+    let currentIndex = newArr.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element using array destructuring.
+      [newArr[currentIndex], newArr[randomIndex]] = [
+        newArr[randomIndex],
+        newArr[currentIndex],
+      ];
+    }
+
+    return newArr;
+  };
+
   const selectCard = (id) => {
     console.log(id);
     setGameInfo({
       ...gameInfo,
       selectedCardIds: [...gameInfo.selectedCardIds, id],
     });
+    setPokemonList(shuffleArray(pokemonList));
   };
 
   return (
