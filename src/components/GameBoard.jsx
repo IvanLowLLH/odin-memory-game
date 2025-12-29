@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Card from "./Card";
 
 function GameBoard({ gameInfo, setGameInfo }) {
   const [gameCount, setGameCount] = useState(0);
@@ -26,7 +27,6 @@ function GameBoard({ gameInfo, setGameInfo }) {
         const formattedPokemon = results.map((data) => ({
           id: data.id,
           name: data.name,
-          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
         }));
         setPokemonList(formattedPokemon);
       } catch (error) {
@@ -36,13 +36,22 @@ function GameBoard({ gameInfo, setGameInfo }) {
     fetchAllPokemon();
   }, [gameCount]);
 
+  const selectCard = (id) => {
+    console.log(id);
+    setGameInfo({
+      ...gameInfo,
+      selectedCardIds: [...gameInfo.selectedCardIds, id],
+    });
+  };
+
   return (
     <div className="game-board">
-      {pokemonList.map((pokemon) => (
-        <div key={pokemon.id} className="game-card">
-          <img src={pokemon.image} />
-          <p>{pokemon.name}</p>
-        </div>
+      {pokemonList.map((pokemonInfo) => (
+        <Card
+          key={pokemonInfo.id}
+          pokemonInfo={pokemonInfo}
+          selectCard={selectCard}
+        />
       ))}
     </div>
   );
