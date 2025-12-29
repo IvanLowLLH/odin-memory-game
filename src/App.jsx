@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const [gameInfo, setGameInfo] = useState({
-    cardIds: [],
+    selectedCardIds: [],
     score: 0,
     bestScore: 0,
   });
