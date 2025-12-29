@@ -59,12 +59,24 @@ function GameBoard({ gameInfo, setGameInfo }) {
   };
 
   const selectCard = (id) => {
-    console.log(id);
-    setGameInfo({
-      ...gameInfo,
-      selectedCardIds: [...gameInfo.selectedCardIds, id],
-    });
-    setPokemonList(shuffleArray(pokemonList));
+    if (gameInfo.selectedCardIds.includes(id)) {
+      // Restart tracked ids and scores
+      setGameInfo({
+        ...gameInfo,
+        selectedCardIds: [],
+        score: 0,
+        bestScore: Math.max(gameInfo.score, gameInfo.bestScore),
+      });
+      // Restarts pokemon list
+      setGameCount(gameCount + 1);
+    } else {
+      setGameInfo({
+        ...gameInfo,
+        selectedCardIds: [...gameInfo.selectedCardIds, id],
+        score: gameInfo.score + 1,
+      });
+      setPokemonList(shuffleArray(pokemonList));
+    }
   };
 
   return (
