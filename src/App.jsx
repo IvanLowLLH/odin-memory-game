@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import GameBoard from "./components/GameBoard";
 
 function App() {
   const [gameInfo, setGameInfo] = useState({
@@ -19,7 +20,7 @@ function App() {
           <p>Best Score: {gameInfo.bestScore}</p>
         </div>
       </div>
-      <div className="game-board"></div>
+      <GameBoard gameInfo={gameInfo} setGameInfo={setGameInfo} />
     </>
   );
 }
