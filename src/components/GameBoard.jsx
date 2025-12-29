@@ -70,11 +70,13 @@ function GameBoard({ gameInfo, setGameInfo }) {
       // Restarts pokemon list
       setGameCount(gameCount + 1);
     } else {
+      // Update tracked ids and score
       setGameInfo({
         ...gameInfo,
         selectedCardIds: [...gameInfo.selectedCardIds, id],
         score: gameInfo.score + 1,
       });
+      // Shuffle array
       setPokemonList(shuffleArray(pokemonList));
     }
   };
