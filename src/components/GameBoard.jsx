@@ -4,6 +4,7 @@ import Card from "./Card";
 function GameBoard({ gameInfo, setGameInfo }) {
   const [gameCount, setGameCount] = useState(0);
   const [pokemonList, setPokemonList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     function generateFewUniqueRandoms(count, min, max) {
@@ -16,6 +17,7 @@ function GameBoard({ gameInfo, setGameInfo }) {
     }
 
     async function fetchAllPokemon() {
+      setLoading(true);
       const idArray = generateFewUniqueRandoms(10, 1, 151);
       try {
         const promises = idArray.map((id) =>
@@ -31,6 +33,8 @@ function GameBoard({ gameInfo, setGameInfo }) {
         setPokemonList(formattedPokemon);
       } catch (error) {
         console.error("Error: ", error);
+      } finally {
+        setLoading(false);
       }
     }
     fetchAllPokemon();
@@ -80,6 +84,7 @@ function GameBoard({ gameInfo, setGameInfo }) {
       setPokemonList(shuffleArray(pokemonList));
     }
   };
+  if (loading) return <div>Loading Pokemon...</div>;
 
   return (
     <div className="game-board">
