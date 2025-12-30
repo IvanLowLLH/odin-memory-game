@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import GameBoard from "./components/GameBoard";
+import pokemonLogo from "./imgs/International_Pokemon_logo.svg";
 
 function App() {
   const [gameInfo, setGameInfo] = useState({
@@ -12,8 +13,8 @@ function App() {
   return (
     <>
       <div className="header">
-        <div className="title">
-          <h1>Pokemon Game</h1>
+        <div className="title-logo">
+          <img src={pokemonLogo} loading="lazy" />
         </div>
         <div className="score-board">
           <p>Score: {gameInfo.score}</p>
