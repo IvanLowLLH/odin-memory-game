@@ -12,11 +12,24 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "GillSansMedium"; /* Name you will use in React components */
+    src:
+        local("GillSansMedium"),
+        url("./fonts/Gill Sans Medium.otf") format("opentype"); /* Path to your .otf file */
+    font-weight: normal;
+    font-style: normal;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     padding: 5px 20px;
     align-items: center;
+}
+
+.score-board {
+    font-family: GillSansMedium;
 }
 
 .game-board {
@@ -86,4 +99,11 @@
 .game-card[data-type="rock"],
 .game-card[data-type="ground"] {
     background-color: rgb(220, 180, 142);
+}
+
+.game-card[data-type="normal"],
+.game-card[data-type="flying"],
+.game-card[data-type="dragon"],
+.game-card[data-type="fairy"] {
+    background-color: rgb(218, 224, 234);
 }
