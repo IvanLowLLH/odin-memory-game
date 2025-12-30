@@ -24,12 +24,12 @@
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 5px 20px;
     align-items: center;
 }
 
 .score-board {
     font-family: GillSansMedium;
+    font-size: 20px;
 }
 
 .game-board {
