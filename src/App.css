@@ -3,6 +3,15 @@
     flex-direction: column;
 }
 
+@font-face {
+    font-family: "GillSansCondensed"; /* Name you will use in React components */
+    src:
+        local("GillSansCondensed"),
+        url("./fonts/GillSans Condensed.otf") format("opentype"); /* Path to your .otf file */
+    font-weight: normal;
+    font-style: normal;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -18,8 +27,8 @@
 }
 
 .game-card {
-    border: 1px solid black;
-    border-radius: 20px;
+    border: 10px solid rgb(233, 189, 68);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,4 +51,9 @@
     /* Ensures the container itself doesn't expand past the grid cell */
     width: 100%;
     overflow: hidden;
+}
+
+.game-card > h1 {
+    font-family: "GillSansCondensed";
+    font-size: 25px;
 }

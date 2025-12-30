@@ -18,7 +18,7 @@ function Card({ pokemonInfo, selectCard }) {
           onError={handleImageError}
         />
       </div>
-      <p style={{ textTransform: "capitalize" }}>{pokemonInfo.name}</p>
+      <h1 style={{ textTransform: "capitalize" }}>{pokemonInfo.name}</h1>
     </div>
   );
 }
