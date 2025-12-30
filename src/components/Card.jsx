@@ -9,7 +9,11 @@ function Card({ pokemonInfo, selectCard }) {
   };
 
   return (
-    <div className="game-card" onClick={() => selectCard(pokemonInfo.id)}>
+    <div
+      className="game-card"
+      data-type={pokemonInfo.type}
+      onClick={() => selectCard(pokemonInfo.id)}
+    >
       <div className="image-container">
         <img
           loading="lazy"

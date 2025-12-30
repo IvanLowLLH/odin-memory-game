@@ -29,6 +29,7 @@ function GameBoard({ gameInfo, setGameInfo }) {
         const formattedPokemon = results.map((data) => ({
           id: data.id,
           name: data.name,
+          type: data.types[0].type.name,
         }));
         setPokemonList(formattedPokemon);
       } catch (error) {

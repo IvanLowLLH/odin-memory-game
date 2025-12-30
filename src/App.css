@@ -57,3 +57,33 @@
     font-family: "GillSansCondensed";
     font-size: 25px;
 }
+
+.game-card[data-type="electric"] {
+    background-color: rgb(241, 241, 144);
+}
+
+.game-card[data-type="fire"] {
+    background-color: rgb(227, 168, 116);
+}
+
+.game-card[data-type="grass"],
+.game-card[data-type="bug"],
+.game-card[data-type="poison"] {
+    background-color: rgb(141, 192, 137);
+}
+
+.game-card[data-type="water"],
+.game-card[data-type="ice"] {
+    background-color: rgb(76, 167, 192);
+}
+
+.game-card[data-type="psychic"],
+.game-card[data-type="ghost"] {
+    background-color: rgb(175, 128, 175);
+}
+
+.game-card[data-type="fighting"],
+.game-card[data-type="rock"],
+.game-card[data-type="ground"] {
+    background-color: rgb(220, 180, 142);
+}
